@@ -1,0 +1,95 @@
+.add-task-button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    font-size: 16px;
+    cursor: pointer;
+    margin-bottom: 20px;
+}
+
+.task-form {
+    background-color: #f9f9f9;
+    border-radius: 5px;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+.task-form h2 {
+    margin-top: 0;
+}
+
+.task-form label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.task-form input[type='text'],
+.task-form textarea,
+.task-form input[type='date'] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border-radius: 4px;
+    border: 1px solid #ddd;
+}
+
+.task-form button {
+    background-color: #4CAF50;
+    color: white;
+}
+
+/* Table styles */
+.todo-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+
+.todo-table th, .todo-table td {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: center;
+}
+
+.todo-table th {
+    background-color: #f2f2f2;
+}
+
+.todo-table tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+.todo-table tr:hover {
+   background-color:#f0f0f0;
+}
+
+
+.todo-table button {
+   background-color: transparent;
+   border: none;
+   cursor: pointer;
+   color: #007bff;
+}
+
+.todo-table button:hover {
+   text-decoration: underline;
+}
+
+
+
+.success-message, .warning-message {
+   margin-top: 10px;
+   padding: 10px;
+   border-radius: 4px;
+}
+
+.success-message {
+   background-color: #d4edda;
+   color: #155724;
+}
+
+.warning-message {
+   background-color: #f8d7da;
+   color: #721c24;
+}

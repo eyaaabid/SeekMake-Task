@@ -1,0 +1,9 @@
+<h2 mat-dialog-title>Confirmation</h2>
+<mat-dialog-content>
+    <p>{{ data.message }}</p>
+    <p>You won't be able to revert this task once you deleted it.</p>
+</mat-dialog-content>
+<mat-dialog-actions>
+    <button mat-button (click)="onCancel()">{{ data.cancelText }}</button>
+    <button mat-button color="warn" (click)="onConfirm()">{{ data.confirmText }}</button>
+</mat-dialog-actions>

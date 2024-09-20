@@ -1,0 +1,67 @@
+<div class="todo-app">
+    <h1>Todo List</h1>
+
+    <button (click)="openForm()" class="add-task-button">
+        <i class="fas fa-plus"></i> Add Task
+    </button>
+
+    <div *ngIf="isFormOpen" class="task-form">
+        <h2>{{ isEditing ? 'Edit Task' : 'Add Task' }}</h2>
+        <form (ngSubmit)="isEditing ? updateTask() : addTask()" #taskForm="ngForm">
+            <div>
+                <label for="taskName">Task Name:</label>
+                <input type="text" id="taskName" [(ngModel)]="task.task" name="task" required />
+            </div>
+            <div>
+                <label for="taskDescription">Description:</label>
+                <textarea id="taskDescription" [(ngModel)]="task.description" name="description"></textarea>
+            </div>
+            <div>
+                <label for="dueDate">Due Date:</label>
+                <input type="date" id="dueDate" [(ngModel)]="task.dueDate" name="dueDate" required />
+            </div>
+            <button type="submit">{{ isEditing ? 'Update Task' : 'Add Task' }}</button>
+            <button type="button" (click)="closeForm()">Cancel</button>
+        </form>
+    </div>
+
+    <!-- Display tasks in a table -->
+    <table class="todo-table">
+        <thead>
+            <tr>
+                <th>Task</th>
+                <th>Description</th>
+                <th>Due Date</th>
+                <th>Status</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let todo of todos">
+                <td>{{ todo.task }}</td>
+                <td>{{ todo.description }}</td>
+                <td>{{ todo.dueDate | date:'shortDate' }}</td> <!-- Format the date -->
+                <td><input type="checkbox" [checked]="todo.completed" (change)="toggleComplete(todo)" /></td>
+                <td>
+                    <button (click)="editTask(todo)">
+                        <i class="fas fa-edit"></i> Edit
+                    </button>
+                    <button (click)="deleteTodo(todo._id)">
+                        <i class="fas fa-trash-alt"></i> Delete
+                    </button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div *ngIf="taskAdded" class="success-message">
+        Task added successfully!
+    </div>
+
+    <div *ngIf="taskExists" class="warning-message">
+        Task already exists!
+    </div>
+</div>
+
+<!-- Font Awesome CDN for icons -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
